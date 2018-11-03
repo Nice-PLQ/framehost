@@ -9,11 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Nice-PLQ/framehost.git"
   },
   "keywords": [
     "postMessage"
   ],
+  "author": "plq",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -25,5 +26,9 @@
     "html-webpack-plugin": "^2.30.1",
     "webpack": "^3.12.0",
     "webpack-dev-server": "^2.11.3"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Nice-PLQ/framehost/issues"
+  },
+  "homepage": "https://github.com/Nice-PLQ/framehost"
 }
