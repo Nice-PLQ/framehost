@@ -8,7 +8,9 @@ let config = {
   },
   output: {
     path: path.join(__dirname, './dist'),
-    filename: '[name].js'
+    filename: '[name].js',
+    library: 'Framehost',
+    libraryTarget: 'umd',
   },
   module: {
     rules: [
