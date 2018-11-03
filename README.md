@@ -36,8 +36,8 @@ const framehost = new FrameHost(actions, origin, iframe.contentWindow);
 
 // Send a message to the iframe window, execute the 'doChildrenAction' method defined in iframe, and pass the data to it. The data can be object, number, string, boolean, array.
 framehost.postMessage({
-  // Action defined in children.js
-  action: 'doChildrenAction',
+  // Action defined in children.js
+  action: 'doChildrenAction',
 
   // Send data
   data: {
@@ -50,7 +50,7 @@ framehost.postMessage({
 // children.js
 
 const actions = {
-  doChildrenAction: (data) => {
+  doChildrenAction: (data) => {
     console.log(data);
   }
 }
@@ -102,7 +102,7 @@ framehost.postMessage({
 ```
 
 ### API
-#### new Framehost(actions: Object, [origin: string], [targetWin: window])
+#### new Framehost(actions: Object, [origin: String], [targetWin: Window])
 Initializing Framhost can receive three parameters:
 
 ##### actions

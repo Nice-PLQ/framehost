@@ -32,7 +32,7 @@ const framehost = new FrameHost(actions, origin, iframe.contentWindow);
 
 // 发送消息给iframe窗口，执行iframe里定义的doChildrenAction方法，并将data数据传过去，data数据可以是object、number、string、boolean、array
 framehost.postMessage({
-  action: 'doChildrenAction',
+  action: 'doChildrenAction',
   data: {
     message: 'this is a message for children.js',
   }
@@ -43,7 +43,7 @@ framehost.postMessage({
 // children.js
 
 const actions = {
-  doChildrenAction: (data) => {
+  doChildrenAction: (data) => {
     console.log(data);
   }
 }
@@ -95,7 +95,7 @@ framehost.postMessage({
 ```
 
 ### API
-#### new Framehost(actions: Object, [origin: string], [targetWin: window])
+#### new Framehost(actions: Object, [origin: String], [targetWin: Window])
 初始化Framhost，可接收三个参数：
 
 ##### actions 必选
@@ -132,7 +132,7 @@ framehost.postMessage({
   console.log('消息已发送');
 });
 
-// or
+// 或者
 /*framehost.postMessage([
   {
     action: 'doSomething1',
