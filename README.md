@@ -1,8 +1,8 @@
 # framehost - A lightweight cross domain communication library
 
-#### Support data communication between iframe, browser new tab windows (Note: IE10+)
+#### Support data communication between iframe, browser new tab windows (Note: IE10+)
 
-[中文文档](./zh-cn.md)
+[中文文档](./ZH-CN.md)
 
 ### Install
 ```
@@ -36,7 +36,7 @@ const framehost = new FrameHost(actions, origin, iframe.contentWindow);
 
 // Send a message to the iframe window, execute the 'doChildrenAction' method defined in iframe, and pass the data to it. The data can be object, number, string, boolean, array.
 framehost.postMessage({
-  // Action defined in children.js 
+  // Action defined in children.js
   action: 'doChildrenAction',
 
   // Send data
