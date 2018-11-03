@@ -1,0 +1,29 @@
+{
+  "name": "framehost",
+  "version": "0.0.2",
+  "description": "A lightweight cross domain communication library",
+  "main": "./dist/framehost.js",
+  "scripts": {
+    "example": "webpack-dev-server --config ./example/webpack.config.js --open --progress --colors",
+    "build": "webpack --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "postMessage"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.16",
+    "globby": "^6.1.0",
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.12.0",
+    "webpack-dev-server": "^2.11.3"
+  }
+}
