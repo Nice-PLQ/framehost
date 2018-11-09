@@ -11,7 +11,7 @@ npm install framehost --save
 
 ### How to use?
 ```javascript
-import Framehost from 'framehost';
+import FrameHost from 'framehost';
 ```
 
 #### 1.iframe code example
@@ -64,7 +64,7 @@ framehost.postMessage({
 ```
 
 #### 2.browser tab windows code example
-This is basically the same as the iframe sample code above, except that the third window parameter passed when the Framehost is initialized is different.
+This is basically the same as the iframe sample code above, except that the third window parameter passed when the FrameHost is initialized is different.
 ```javascript
 // pageA
 
@@ -131,7 +131,7 @@ The target window for message sending, if the message is sent to the iframe wind
 #### postMessage([{action: string, data: any}, ...], callback: function)
 The method of sending messages is an instance method of `Framehost`. This method receives an object or an array of objects and a callback function as parameters. The parameter object must contain `action` and `data` fields, `action` represents the method name that the target window needs to execute, and `data` represents the data transferred. The `callback` function will be called immediately after all messages are sent out, and `callback` is optional. Such as:
 ```javascript
-const framehost = new Framehost(actions, origin, targetWin);
+const framehost = new FrameHost(actions, origin, targetWin);
 framehost.postMessage({
   action: 'doSomething1', // The name of the method to execute in the target window.
   data: 'I am a message data', // Support object/array/number/string/boolean data type.

@@ -1,6 +1,6 @@
 {
   "name": "framehost",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A lightweight cross domain communication library",
   "main": "./dist/framehost.js",
   "scripts": {
