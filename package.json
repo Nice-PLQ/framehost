@@ -1,11 +1,12 @@
 {
   "name": "framehost",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A lightweight cross domain communication library",
   "main": "./dist/framehost.js",
   "scripts": {
     "example": "webpack-dev-server --config ./example/webpack.config.js --open --progress --colors",
-    "build": "webpack --progress --colors"
+    "build": "webpack --progress --colors",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",

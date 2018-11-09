@@ -9,7 +9,7 @@ let config = {
   output: {
     path: path.join(__dirname, './dist'),
     filename: '[name].js',
-    library: 'Framehost',
+    library: 'FrameHost',
     libraryTarget: 'umd',
   },
   module: {
@@ -20,7 +20,7 @@ let config = {
         use: [{
           loader: 'babel-loader',
           options: {
-            presets: [['env', { "modules": false }], 'react', 'stage-2']
+            presets: [['env', { "modules": false }], 'stage-2']
           }
         }]
       }
