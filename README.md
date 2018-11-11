@@ -102,8 +102,8 @@ framehost.postMessage({
 ```
 
 ### API
-#### new Framehost(actions: Object, [origin: String], [targetWin: Window])
-Initializing Framhost can receive three parameters:
+#### new FrameHost(actions: Object, [origin: String], [targetWin: Window])
+Initializing FramHost can receive three parameters:
 
 ##### actions
 Type is an object and keys are functions. When a message is received, the key in the object is matched and the corresponding method of key is executed, such as:
@@ -127,9 +127,9 @@ Message source, when the `origin` parameter is provided, only messages from the 
 ##### targetWin
 The target window for message sending, if the message is sent to the iframe window, the parameter value is `iframe.contentWindow`. If the message is sent to the browser tab window, the parameter value is the window reference returned after the `window.open()` method is executed.
 
-#### postMessage({action: string, data: any}, callback: function)
-#### postMessage([{action: string, data: any}, ...], callback: function)
-The method of sending messages is an instance method of `Framehost`. This method receives an object or an array of objects and a callback function as parameters. The parameter object must contain `action` and `data` fields, `action` represents the method name that the target window needs to execute, and `data` represents the data transferred. The `callback` function will be called immediately after all messages are sent out, and `callback` is optional. Such as:
+#### postMessage({action: String, data: Any}, callback: Function)
+#### postMessage([{action: String, data: Any}, ...], callback: Function)
+The method of sending messages is an instance method of `FrameHost`. This method receives an object or an array of objects and a callback function as parameters. The parameter object must contain `action` and `data` fields, `action` represents the method name that the target window needs to execute, and `data` represents the data transferred. The `callback` function will be called immediately after all messages are sent out, and `callback` is optional. Such as:
 ```javascript
 const framehost = new FrameHost(actions, origin, targetWin);
 framehost.postMessage({
@@ -163,6 +163,12 @@ framehost.postMessage({
 }, () => {
   console.log('the message has been sent, and there is no need to send the message again.');
   framehost.destroy();
+});
+
+// The following code will not continue to work because the destroy method has been invoked before.
+framehost.postMessage({
+  action: 'doSomething2',
+  data: 'I am a another message data',
 });
 ```
 

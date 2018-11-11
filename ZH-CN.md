@@ -30,7 +30,7 @@ const origin = 'http://www.children.com';
 // 初始化framehost
 const framehost = new FrameHost(actions, origin, iframe.contentWindow);
 
-// 发送消息给iframe窗口，执行iframe里定义的doChildrenAction方法，并将data数据传过去，data数据可以是object、number、string、boolean、array
+// 发送消息给iframe窗口，执行iframe里定义的doChildrenAction方法，并将data数据传过去，data数据可以是object、number、string、boolean、array
 framehost.postMessage({
   action: 'doChildrenAction',
   data: {
@@ -57,7 +57,7 @@ framehost.postMessage({
 ```
 
 #### 2、浏览器tab窗口通信示例
-与上面iframe示例代码基本相同，唯一不同的是在初始化Framehost时传的第三个window参数不同
+与上面iframe示例代码基本相同，唯一不同的是在初始化FrameHost时传的第三个window参数不同
 ```javascript
 // pageA
 
@@ -95,8 +95,8 @@ framehost.postMessage({
 ```
 
 ### API
-#### new Framehost(actions: Object, [origin: String], [targetWin: Window])
-初始化Framhost，可接收三个参数：
+#### new FrameHost(actions: Object, [origin: String], [targetWin: Window])
+初始化FramHost，可接收三个参数：
 
 ##### actions 必选
 类型是一个对象，key均为函数，当收到message消息时，会匹配对象中的key，并执行key对应的方法，如：
@@ -120,11 +120,11 @@ const actions = {
 ##### targetWin 可选
 消息发送的目标窗口，如果消息是往iframe窗口发送，则该参数值为`iframe.contentWindow`。如果消息往浏览器tab窗口发送，则该参数值为执行`window.open()`方法后返回的窗口引用。
 
-#### postMessage({action: string, data: any}, callback: function)
-#### postMessage([{action: string, data: any}, ...], callback: function)
-发送消息的方法，是`Framehost`的实例方法，该方法接收一个对象或者对象数组，和一个回调函数作为参数，参数对象必须包含`action`和`data`字段，`action`表示目标窗口需要执行的方法名，`data`表示传递的数据。`callback`函数会在所有消息发送出去之后立即调用，`callback`是可选的。如：
+#### postMessage({action: String, data: Any}, callback: Function)
+#### postMessage([{action: String, data: Any}, ...], callback: Function)
+发送消息的方法，是`FrameHost`的实例方法，该方法接收一个对象或者对象数组，和一个回调函数作为参数，参数对象必须包含`action`和`data`字段，`action`表示目标窗口需要执行的方法名，`data`表示传递的数据。`callback`函数会在所有消息发送出去之后立即调用，`callback`是可选的。如：
 ```javascript
-const framehost = new Framehost(actions, origin, targetWin);
+const framehost = new FrameHost(actions, origin, targetWin);
 framehost.postMessage({
   action: 'doSomething1', // 目标窗口需要执行的方法名
   data: 'I am a message data', // 支持object、array、number、string、boolean
@@ -156,6 +156,12 @@ framehost.postMessage({
 }, () => {
   console.log('消息已发送，后续不需要再发送消息了');
   framehost.destroy();
+});
+
+// 下面的代码将不会继续起作用，因为前面已经调用了destroy方法了
+framehost.postMessage({
+  action: 'doSomething2',
+  data: 'I am a another message data',
 });
 ```
 
