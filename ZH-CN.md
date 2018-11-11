@@ -9,7 +9,7 @@ npm install framehost --save
 
 ### 如何使用？
 ```javascript
-import Framehost from 'framehost';
+import FrameHost from 'framehost';
 ```
 #### 1、iframe通信示例
 ```javascript
